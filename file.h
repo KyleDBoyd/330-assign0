@@ -1,22 +1,34 @@
-#infdef FILE_H
+#ifndef FILE_H
 #define FILE_H
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
 
 class File {
+
+    ifstream infile;
+    const char *filename;
+    string currentLine;
+
     public:
+
         // Constructor
-        file();
+        File(const char *c);
         // Destructor
-        ~file();
+        ~File();
         // Opens file. Throw error if it fails to open.
         void openFile();
         // Close file. Throw error if it fails to close.
         void closeFile();
-         
-    private:
-        // Check the taxpayer's name input.
-        boolean checkName(string s);
-        // Check the taxpayer's net income input.
-        boolean checkIncome(string s);
+        // Checks to see if we have reached the end of the file.
+        bool isEndOfFile();
+        // Get next line from file
+        string getLine();
         // Check file input line length to ensure it is not over 80 characters.
-        boolean checkLineLength(string s);
-}
+        bool isValidLineLength(string s);
+
+};
+
+#endif

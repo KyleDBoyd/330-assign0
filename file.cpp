@@ -1,23 +1,52 @@
 #include "file.h"
 
-file::file(string s)
+File::File(const char *c)
 {
-    filename = s;
+    filename = c;
 }
 
-file::~file()  
-{
-
-}
-
-void file::openFile(ifstream& infile)
+File::~File()  
 {
 
 }
 
-void file::closeFile(ifstream& infile)
+void File::openFile()
 {
-
+	// @TODO check for emptyh filename
+	infile.open(filename);
+	if(infile.fail()) {
+		// Throw Error
+	}
+	return;
 }
 
+void File::closeFile()
+{
+	infile.close();
+	return;
+}
 
+bool File::isEndOfFile() 
+{
+	if(infile.eof()) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+string File::getLine()
+{
+	getline(infile, currentLine);
+	return currentLine;
+}
+
+bool File::isValidLineLength(string s)
+{
+	// @TODO Replace with constant
+	if(s.length() <= 80) {
+		return true;
+	} else {
+		return false;
+	}
+}
