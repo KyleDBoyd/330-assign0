@@ -8,7 +8,7 @@ class Cmd {
     public:
 
         // Constructor
-        Cmd();
+        Cmd(int argc, char *argv[]);
         // Destructor
         ~Cmd();
 

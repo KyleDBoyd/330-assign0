@@ -5,6 +5,7 @@
 // Class includes
 #include "file.h"
 #include "tax.h"
+#include "cmd.h"
 
 using namespace std;
 
@@ -39,7 +40,7 @@ int main(int argc, char *argv[])
 				income = tax.getIncome(currentLine);
 				// Validate tax name and tax income
 				if(tax.isValidName(name) && tax.isValidIncome(income)) {
-					incomeTax = tax.calculateTax(atof(income.c_str()));
+					incomeTax = tax.getIncomeTax(atof(income.c_str()));
 				} else {
 					// Inform user there is an error with the name/income on line X
 				}
