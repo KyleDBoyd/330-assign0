@@ -1,5 +1,8 @@
+// Library includes
 #include <iostream>
 #include <stdlib.h>
+
+// Class includes
 #include "file.h"
 #include "tax.h"
 
@@ -43,7 +46,6 @@ int main()
 			}
 		} else {
 			// Inform user the line is empty
-			cout << "empty line" << endl;
 		}
 
 	}
