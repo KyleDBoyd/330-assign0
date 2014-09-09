@@ -15,12 +15,11 @@ int main(int argc, char *argv[])
 	Cmd cmd(argc, argv);
 
 	// Variables
-	const char *filename = "tax.txt";
 	string currentLine, name, income;
 	float incomeTax;
 
 	// Initialize tax and file objects
-	File file(filename);
+	File file(cmd.getFileName());
 	Tax tax;
 
 	// Open file
