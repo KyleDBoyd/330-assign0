@@ -16,11 +16,11 @@ Tax computation
 
 This is taken more or less directly from the Canadian 2004 Income Tax Schedule 1.
 
-INCOME                                          TAX BASE AMOUNT       MARGINAL TAX RATE
-If the net income is $35,000 or less $0.00:     $0.00                 16%
-More than $35,000, but not more than $70,000    $5,600.00             22%
-More than $70,000, but not more than $100,000   $13,300.00            26%
-More than $100,000                              $21,100.00            29%
+|INCOME                                          |TAX BASE AMOUNT|       |MARGINAL TAX RATE     |
+|If the net income is $35,000 or less $0.00:     |$0.00          |       |16%                   |
+|More than $35,000, but not more than $70,000    |$5,600.00      |       |22%                   |
+|More than $70,000, but not more than $100,000   |$13,300.00     |       |26%                   |
+|More than $100,000                              |$21,100.00     |       |9%                    |
 
 Tax is computed by locating the appropriate column and finding the corresponding income base amount, tax base amount and marginal tax rate. The former is the lowest income for which the column applies (one of $0.00, $35,000.00, $70,000.00, $100,000.00), the latter are read directly from the table. These values are used to compute the federal income tax as follows:
 
