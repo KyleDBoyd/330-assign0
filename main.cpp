@@ -1,7 +1,6 @@
 #include <iostream>
-#include <fstream>
-#include <string>
 #include "file.h"
+#include "tax.h"
 
 using namespace std;
 
@@ -9,10 +8,11 @@ int main()
 {
 	// Variables
 	const char *filename = "tax.txt";
-	string currentLine;
+	string currentLine, taxName, taxIncome;
 
-	// Initialize file object
+	// Initialize class objects
 	File file(filename);
+	Tax tax;
 
 	// Open file
 	file.openFile();
@@ -21,12 +21,25 @@ int main()
 	while(!file.isEndOfFile()) {
 		// Get next line
 		currentLine = file.getLine();
-		// Make sure line length isn't over 80 characters
-		if(file.isValidLineLength()) {
-			
+		// Make sure line isn't empty
+		if(!file.isEmptyLine(currentLine)) {
+			// Make sure line length isn't over 80 characters
+			if(file.isValidLineLength(currentLine)) {
+				// Get tax name from current line
+				taxName = tax.getName(currentLine);
+				// Get tax income from current line
+				taxIncome = tax.getIncome(currentLine);
+				//cout << "Name:" << taxName << endl;
+				//cout << "Income:" << taxIncome << endl;
+
+			} else {
+				// Inform user that the line length exceeds the limit
+			}
 		} else {
-			// Inform user that the line length exceeds the limit
+			// Inform user the line is empty
+			cout << "empty line" << endl;
 		}
+
 	}
 
 	// Close file

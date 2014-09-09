@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstring>
 
 using namespace std;
 
@@ -28,6 +29,8 @@ class File {
         string getLine();
         // Check file input line length to ensure it is not over 80 characters.
         bool isValidLineLength(string s);
+        // Check if line is empty
+        bool isEmptyLine(string s);
 
 };
 

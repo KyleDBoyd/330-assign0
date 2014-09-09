@@ -1,19 +1,38 @@
-string File::getName()
+#include "tax.h"
+
+Tax::Tax()
 {
 
 }
 
-string File::getIncome()
-{
-	
-}
-
-bool File::isValidName(string s)
+Tax::~Tax()  
 {
 
 }
 
-bool File::isValidIncome(string s)
+string Tax::getName(string s)
+{
+	// @TODO - Replace delimeter with constant
+	string delimiter = "\t";
+	string name;
+	name = s.substr(0, s.find(delimiter));
+	return name;
+}
+
+string Tax::getIncome(string s)
+{
+	string delimiter = "\t";
+	string income;
+	income = s.substr(s.find(delimiter) + delimiter.length(), s.length);
+	return income;
+}
+
+bool Tax::isValidName(string s)
+{
+
+}
+
+bool Tax::isValidIncome(string s)
 {
 	
 }
