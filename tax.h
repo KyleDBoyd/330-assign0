@@ -2,6 +2,7 @@
 #define TAX_H
 #include <iostream>
 #include <string>
+//#include <regex>
 
 using namespace std;
 
@@ -20,6 +21,9 @@ class Tax {
         bool isValidName(string s);
         // Check the taxpayer's net income input.
         bool isValidIncome(string s);
+        // Calculates income tax based on the provided tax amount
+        float calculateTax(float f);
+    private:
 };
 
 #endif

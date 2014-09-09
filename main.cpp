@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include "file.h"
 #include "tax.h"
 
@@ -8,7 +9,8 @@ int main()
 {
 	// Variables
 	const char *filename = "tax.txt";
-	string currentLine, taxName, taxIncome;
+	string currentLine, name, income;
+	float incomeTax;
 
 	// Initialize class objects
 	File file(filename);
@@ -26,11 +28,15 @@ int main()
 			// Make sure line length isn't over 80 characters
 			if(file.isValidLineLength(currentLine)) {
 				// Get tax name from current line
-				taxName = tax.getName(currentLine);
+				name = tax.getName(currentLine);
 				// Get tax income from current line
-				taxIncome = tax.getIncome(currentLine);
-				//cout << "Name:" << taxName << endl;
-				//cout << "Income:" << taxIncome << endl;
+				income = tax.getIncome(currentLine);
+				// Validate tax name and tax income
+				if(tax.isValidName(name) && tax.isValidIncome(income)) {
+					incomeTax = tax.calculateTax(atof(income.c_str()));
+				} else {
+					// Inform user there is an error with the name/income on line X
+				}
 
 			} else {
 				// Inform user that the line length exceeds the limit

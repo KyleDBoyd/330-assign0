@@ -21,18 +21,41 @@ string Tax::getName(string s)
 
 string Tax::getIncome(string s)
 {
+	// @TODO - Replace delimeter with constant
 	string delimiter = "\t";
 	string income;
-	income = s.substr(s.find(delimiter) + delimiter.length(), s.length);
+	int found;
+	found = s.find(delimiter);
+	if (found != std::string::npos) {
+		income = s.substr(found);
+	}
 	return income;
 }
 
 bool Tax::isValidName(string s)
 {
-
+	/*regex reg("[-a-zA-Z0-9., ]+");
+	if(!s.empty() && regex_match(s, reg)) {
+		return true;
+	} else { 
+		return false;
+	}*/
+	return true;
 }
 
 bool Tax::isValidIncome(string s)
 {
-	
+	/*regex reg("[0-9]+.[0-9][0-9]");
+	if(!s.empty() && regex_match(s, reg)) {
+		return true;
+	} else { 
+		return false;
+	}*/
+	return true;
+}
+
+float Tax::calculateTax(float f)
+{
+	cout << f;
+	return f;
 }
