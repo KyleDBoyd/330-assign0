@@ -34,23 +34,23 @@ string Tax::getIncome(string s)
 
 bool Tax::isValidName(string s)
 {
-	/*regex reg("[-a-zA-Z0-9., ]+");
+	regex reg("[-a-zA-Z0-9., ]+");
 	if(!s.empty() && regex_match(s, reg)) {
 		return true;
 	} else { 
 		return false;
-	}*/
+	}
 	return true;
 }
 
 bool Tax::isValidIncome(string s)
 {
-	/*regex reg("[0-9]+.[0-9][0-9]");
+	regex reg("[0-9]+.[0-9][0-9]");
 	if(!s.empty() && regex_match(s, reg)) {
 		return true;
 	} else { 
 		return false;
-	}*/
+	}
 	return true;
 }
 
@@ -59,7 +59,7 @@ float Tax::getIncomeTax(float f)
 
 }
 
-float Tax:calculateIncomeTax(float taxBaseAmount, float netIncome, float incomeBaseAmount, float TaxRate)
+float Tax::calculateIncomeTax(float taxBaseAmount, float netIncome, float incomeBaseAmount, float taxRate)
 {
 	return taxBaseAmount + (netIncome - incomeBaseAmount) * taxRate;
 }

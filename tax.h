@@ -2,7 +2,7 @@
 #define TAX_H
 #include <iostream>
 #include <string>
-//#include <regex>
+#include <regex>
 
 using namespace std;
 
@@ -25,7 +25,7 @@ class Tax {
         float getIncomeTax(float f);
     private:
         // Calculate income tax
-	float calculateIncomeTax(float taxBaseAmount, float netInome, floatincomeBaseAmount, float taxRate);
+	float calculateIncomeTax(float taxBaseAmount, float netInome, float incomeBaseAmount, float taxRate);
 };
 
 #endif
