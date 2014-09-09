@@ -8,14 +8,17 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
+	// Initialize cmd object with command line arguments
+	Cmd cmd(argc, argv);
+
 	// Variables
 	const char *filename = "tax.txt";
 	string currentLine, name, income;
 	float incomeTax;
 
-	// Initialize class objects
+	// Initialize tax and file objects
 	File file(filename);
 	Tax tax;
 
