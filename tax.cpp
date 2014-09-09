@@ -54,8 +54,12 @@ bool Tax::isValidIncome(string s)
 	return true;
 }
 
-float Tax::calculateTax(float f)
+float Tax::getIncomeTax(float f)
 {
-	cout << f;
-	return f;
+
+}
+
+float Tax:calculateIncomeTax(float taxBaseAmount, float netIncome, float incomeBaseAmount, float TaxRate)
+{
+	return taxBaseAmount + (netIncome - incomeBaseAmount) * taxRate;
 }

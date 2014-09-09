@@ -21,9 +21,11 @@ class Tax {
         bool isValidName(string s);
         // Check the taxpayer's net income input.
         bool isValidIncome(string s);
-        // Calculates income tax based on the provided tax amount
-        float calculateTax(float f);
+        // Get income tax based on the provided tax amount
+        float getIncomeTax(float f);
     private:
+        // Calculate income tax
+	float calculateIncomeTax(float taxBaseAmount, float netInome, floatincomeBaseAmount, float taxRate);
 };
 
 #endif
