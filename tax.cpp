@@ -11,8 +11,7 @@ Tax::Tax()
 
 Tax::~Tax()  
 {
-	// Delete taxBracketData array
-
+	// @TODO Delete taxBracketData array
 }
 
 string Tax::getName(string s)
@@ -35,8 +34,8 @@ string Tax::getIncome(string s)
 
 bool Tax::isValidName(string s)
 {
-	/*regex reg("[-a-zA-Z0-9., ]+");
-	if(!s.empty() && boost::regex_match(s, reg)) {
+	/*regex reg("[a-zA-Z0-9., ]+", regex_constants::ECMAScript);
+	if(!s.empty() && regex_match(s, reg)) {
 		return true;
 	} else { 
 		return false;
@@ -46,7 +45,7 @@ bool Tax::isValidName(string s)
 
 bool Tax::isValidIncome(string s)
 {
-	/*regex reg("[0-9]+.[0-9][0-9]");
+	/*regex reg("[0-9]+.[0-9][0-9]", regex_constants::ECMAScript);
 	if(!s.empty() && regex_match(s, reg)) {
 		return true;
 	} else { 
