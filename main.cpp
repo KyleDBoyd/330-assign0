@@ -8,6 +8,8 @@
 #include "tax.h"
 #include "cmd.h"
 
+
+
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -55,8 +57,13 @@ int main(int argc, char *argv[])
 
 							// Get income tax
 							incomeTax = tax.getIncomeTax(atof(income.c_str()));
-							// Output name & income tax
-							cout << name << ": $" << incomeTax << endl;
+
+							// Check for invalid income
+							if (incomeTax == -1) {
+								cout << "Negative income input on line " << file.getLineNumber() << endl;
+							} else {
+								cout << name << ": $" << incomeTax << endl;
+							}
 
 						// Invalid tax income
 						} else {
