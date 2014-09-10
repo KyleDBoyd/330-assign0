@@ -138,9 +138,7 @@ These should throw errors, but my regex is not working correcty.
 
 Additional Notes
 ==============
-There are a couple known bugs because my functions with regular expressions are not functioning as expected. My isValidName() and isValidIncome() are not functioning correctly because I was running into some regex issues that I could not resolve due to time constraints.
-
-
+There are a couple known bugs because my functions with regular expressions are not functioning as expected
 
 
 
