@@ -100,7 +100,7 @@ More example executions to demonstrate the error handling:
 Test Cases
 ==============
 
-Tax computation
+Input
 --------------
 1. Test UserA	123456
 2. Test UserB	0
