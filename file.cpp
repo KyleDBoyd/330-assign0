@@ -14,7 +14,7 @@ void File::openFile()
 {
 	infile.open(filename);
 	if (infile.fail()) {
-		throw runtime_error("File failed to open");
+		throw runtime_error("File failed to open.");
 	}
 	return;
 }
