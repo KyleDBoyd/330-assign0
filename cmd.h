@@ -1,11 +1,17 @@
 #ifndef CMD_H
 #define CMD_H
 
+// Libarary includes
+#include <cstddef>
+#include <iostream>
+#include <stdexcept>
+
 using namespace std;
 
 class Cmd {
 
-    fileName;
+	// Class variables
+    char *fileName;
     
     public:
 
@@ -14,7 +20,7 @@ class Cmd {
         // Destructor
         ~Cmd();
         // Get file name from command line argument
-        getFileName();
+        char *getFileName();
 
 };
 

@@ -1,3 +1,7 @@
+Kyle Boyd
+564867695
+CSCI 331
+
 Specification
 ==============
 Input
@@ -47,3 +51,38 @@ For each valid input line, a line of the following form should be printed to sta
 Name String: $tax amount
 
 Lines not meeting the input specification should generate an error message to standard error indicating the line number and nature of the problem.
+
+Examples
+==============
+
+Test Cases
+==============
+
+Tax computation
+--------------
+1.
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+9.
+10.
+
+Output
+--------------
+1.
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+9.
+10.
+
+
+

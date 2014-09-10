@@ -1,6 +1,11 @@
+#include "cmd.h"
 Cmd::Cmd(int argc, char *argv[])
 {
-    filename = argv[1];
+
+    fileName = argv[1];
+    if (fileName == NULL) {
+    	throw runtime_error("Empty file name.");
+    }
 }
 
 Cmd::~Cmd()
@@ -8,7 +13,7 @@ Cmd::~Cmd()
 
 }
 
-Cmd::getFileName()
+char* Cmd::getFileName()
 {
-    return filename;
+    return fileName;
 }

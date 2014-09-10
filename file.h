@@ -1,22 +1,30 @@
 #ifndef FILE_H
 #define FILE_H
+
+// Library includes
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <cstring>
+#include <stdexcept>
 
 using namespace std;
 
 class File {
 
+    // Class constants
+    const int lineCharacterLimit = 80;
+
+    // Class variables
     ifstream infile;
     const char *filename;
     string currentLine;
+    int lineNumber = 0;
 
     public:
 
         // Constructor
-        File(const char *c);
+        File(char *c);
         // Destructor
         ~File();
         // Opens file. Throw error if it fails to open.
@@ -31,6 +39,8 @@ class File {
         bool isValidLineLength(string s);
         // Check if line is empty
         bool isEmptyLine(string s);
+        // Get line number of current file stream
+        int getLineNumber();
 
 };
 

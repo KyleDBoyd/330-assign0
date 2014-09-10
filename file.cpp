@@ -1,6 +1,6 @@
 #include "file.h"
 
-File::File(const char *c)
+File::File(char *c)
 {
     filename = c;
 }
@@ -12,10 +12,9 @@ File::~File()
 
 void File::openFile()
 {
-	// @TODO check for empty filename
 	infile.open(filename);
-	if(infile.fail()) {
-		// Throw Error
+	if (infile.fail()) {
+		throw runtime_error("File failed to open");
 	}
 	return;
 }
@@ -34,13 +33,13 @@ bool File::isEndOfFile()
 string File::getLine()
 {
 	getline(infile, currentLine);
+	lineNumber++;
 	return currentLine;
 }
 
 bool File::isValidLineLength(string s)
 {
-	// @TODO Replace 80 with constant
-	if(s.length() <= 80) {
+	if (s.length() <= lineCharacterLimit) {
 		return true;
 	} else {
 		return false;
@@ -50,4 +49,9 @@ bool File::isValidLineLength(string s)
 bool File::isEmptyLine(string s)
 {
 	return s.empty();
+}
+
+int File::getLineNumber()
+{
+	return lineNumber;
 }

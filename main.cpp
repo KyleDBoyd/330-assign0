@@ -1,6 +1,7 @@
 // Library includes
 #include <iostream>
 #include <stdlib.h>
+#include <stdexcept>
 
 // Class includes
 #include "file.h"
@@ -11,50 +12,79 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-	// Initialize cmd object with command line arguments
-	Cmd cmd(argc, argv);
 
-	// Variables
-	string currentLine, name, income;
-	float incomeTax;
+	try {
 
-	// Initialize tax and file objects
-	File file(cmd.getFileName());
-	Tax tax;
+		// Initialize cmd object with command line arguments
+		Cmd cmd(argc, argv);
 
-	// Open file
-	file.openFile();
+		// Variables
+		string currentLine, name, income;
+		float incomeTax;
 
-	// Process file
-	while(!file.isEndOfFile()) {
-		// Get next line
-		currentLine = file.getLine();
-		// Make sure line isn't empty
-		if(!file.isEmptyLine(currentLine)) {
-			// Make sure line length isn't over 80 characters
-			if(file.isValidLineLength(currentLine)) {
-				// Get tax name from current line
-				name = tax.getName(currentLine);
-				// Get tax income from current line
-				income = tax.getIncome(currentLine);
-				// Validate tax name and tax income
-				if(tax.isValidName(name) && tax.isValidIncome(income)) {
-					incomeTax = tax.getIncomeTax(atof(income.c_str()));
+		// Initialize file and tax objects
+		File file(cmd.getFileName());
+		Tax tax;
+
+		// Open file
+		file.openFile();
+
+		// Process file
+		while (!file.isEndOfFile()) {
+
+			// Get next line
+			currentLine = file.getLine();
+
+			// Make sure line isn't empty
+			if (!file.isEmptyLine(currentLine)) {
+
+				// Make sure line length isn't over 80 characters
+				if (file.isValidLineLength(currentLine)) {
+
+					// Get tax name from current line
+					name = tax.getName(currentLine);
+
+					// Get tax income from current line
+					income = tax.getIncome(currentLine);
+
+					// Validate tax name
+					if (tax.isValidName(name)) {
+
+						// Validate tax income
+						if (tax.isValidIncome(income)) {
+
+							// Get income tax
+							incomeTax = tax.getIncomeTax(atof(income.c_str()));
+							// Output name & income tax
+							cout << name << ": $" << incomeTax << endl;
+
+						// Invalid tax income
+						} else {
+							cout << "Invalid income input on line " << file.getLineNumber() << endl;
+						}
+
+					// Invalid tax name
+					} else {
+						cout << "Invalid name input on line " << file.getLineNumber() << endl;
+					} 
+				
+				// Invalid line length
 				} else {
-					// Inform user there is an error with the name/income on line X
+					cout << "Line length exceeds the limit of 80 characters on line " << file.getLineNumber() << endl;
 				}
 
+			// Empty line
 			} else {
-				// Inform user that the line length exceeds the limit
+				cout << "Line " << file.getLineNumber() << " is empty." << endl;
 			}
-		} else {
-			// Inform user the line is empty
 		}
 
-	}
+		// Close file
+		file.closeFile();
 
-	// Close file
-	file.closeFile();
+	} catch (exception &e) {
+		cout << "An error occured: " << e.what() << endl;
+	}
 
 	return 0;
 }
