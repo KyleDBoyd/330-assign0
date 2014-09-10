@@ -12,6 +12,7 @@ class Tax {
 
     // Class constants
     const string delimiter = "\t";
+    static const int numTaxBrackets = 4;
 
     // Class variables
     struct taxBracket
@@ -22,16 +23,11 @@ class Tax {
         int taxRate;
     };
 
-    // Define tax bracket data
-    /*taxBracket const taxBracketData[] = {
-        {0, 35000, 0, 16},
-        {35000, 70000, 5600, 22},
-        {70000, 100000, 13300, 26},
-        {100000, -1 , 21100, 29}
-    };*/
+    // Initialze tax bracket data array
+    taxBracket taxBracketData[numTaxBrackets];
 
     public:
-    	// Constructor
+        // Constructor
         Tax();
         // Destructor
         ~Tax();
@@ -48,7 +44,7 @@ class Tax {
     private:
 
         // Calculate income tax
-	   float calculateIncomeTax(float taxBaseAmount, float netIncome, float incomeBaseAmount, float taxRate);
+	    float calculateIncomeTax(float taxBaseAmount, float netIncome, float incomeBaseAmount, float taxRate);
 };
 
 #endif

@@ -1,5 +1,5 @@
 app: main.o file.o tax.o cmd.o
-		g++ -std=gnu++11 -o app main.o file.o tax.o cmd.o
+		g++ -std=gnu++11 -o app main.o file.o tax.o cmd.o 
 main.o: main.cpp file.h 
 		g++ -std=gnu++11 -c main.cpp
 file.o: file.cpp file.h 

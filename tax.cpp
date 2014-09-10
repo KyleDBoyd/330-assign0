@@ -2,11 +2,16 @@
 
 Tax::Tax()
 {
-
+	// Initialize tax bracket data
+    taxBracketData[0] = {0, 35000, 0, 16};
+    taxBracketData[1] = {35000, 70000, 5600, 22};
+    taxBracketData[2] = {70000, 100000, 13300, 26};
+    taxBracketData[3] = {100000, -1 , 21100, 29};
 }
 
 Tax::~Tax()  
 {
+	// Delete taxBracketData array
 
 }
 
@@ -30,8 +35,8 @@ string Tax::getIncome(string s)
 
 bool Tax::isValidName(string s)
 {
-	/*regex reg("[a-zA-Z0-9., ]+");
-	if(!s.empty() && regex_match(s, reg)) {
+	/*regex reg("[-a-zA-Z0-9., ]+");
+	if(!s.empty() && boost::regex_match(s, reg)) {
 		return true;
 	} else { 
 		return false;
@@ -47,26 +52,26 @@ bool Tax::isValidIncome(string s)
 	} else { 
 		return false;
 	}*/
-		return true;
+	return true;
 }
 
 float Tax::getIncomeTax(float netIncome)
 {
-	/*bool foundBracket = false;
+	bool foundBracket = false;
 	if(netIncome < 0) {
-		return -1
+		return -1;
 	} else if (netIncome == 0) {
 		return 0;
 	} else {
 		for (int i=0; i < sizeof(taxBracketData) && !foundBracket; i++) {
-			if (((taxBracketData[i].netIncomeMax == -1) || (taxBracketData[i].netIncomeMax != -1 && f < taxBracketData[i].netIncomeMax)) && f > taxBracketData[i].netIncomeMin) {
-				return calculateIncomeTax(taxBracketData[i].taxBaseAmount, netIncome, taxBracketData[i].incomeBaseAmount, taxBracketData[i].taxRate);
+			if (((taxBracketData[i].netIncomeMax == -1) || (taxBracketData[i].netIncomeMax != -1 && netIncome <= taxBracketData[i].netIncomeMax)) && netIncome > taxBracketData[i].netIncomeMin) {
+				return calculateIncomeTax(taxBracketData[i].taxBaseAmount, netIncome, taxBracketData[i].netIncomeMin, taxBracketData[i].taxRate);
 			}
 		}
-	}*/
+	}
 }
 
 float Tax::calculateIncomeTax(float taxBaseAmount, float netIncome, float incomeBaseAmount, float taxRate)
 {
-	return taxBaseAmount + (netIncome - incomeBaseAmount) * taxRate;
+	return taxBaseAmount + (netIncome - incomeBaseAmount) * taxRate / 100;
 }
