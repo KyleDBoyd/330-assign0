@@ -1,9 +1,11 @@
 Kyle Boyd
 564867695
 CSCI 331
+Assignment 0
 
 Specification
 ==============
+
 Input
 --------------
 
@@ -52,37 +54,73 @@ Name String: $tax amount
 
 Lines not meeting the input specification should generate an error message to standard error indicating the line number and nature of the problem.
 
-Examples
+File List
 ==============
+- cmd.cpp
+- cmd.h 
+- file.cpp
+- file.h
+- tax.cpp
+- tax.h
+- main.cpp
+- makefile 
+- tax.txt
+- readme.md
+
+Example Executions
+==============
+Run the "make" command to compile the program 
+
+	$ make
+	g++ -std=gnu++11 -c main.cpp
+	g++ -std=gnu++11 -c file.cpp 
+	g++ -std=gnu++11 -c tax.cpp 
+	g++ -std=gnu++11 -c cmd.cpp 
+	g++ -std=gnu++11 -o app main.o file.o tax.o cmd.o 
+
+Run "./app" followed by a text file. Lines with the correct input format will return the taxpayer's name followed by their income tax.
+
+	$ ./app tax.txt
+	Test UserA: $4000
+	Test UserB: $13820
+	Test UserC: $21100
+
+More example executions to demonstrate the error handling:
+
+	$ ./app
+	An error occured: Empty file name.
+
+	$ ./app random.txt
+	An error occured: File failed to open.
+
 
 Test Cases
 ==============
 
 Tax computation
 --------------
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
-9.
-10.
+1. Test UserA	123456
+2. Test UserB	0
+3. Test UserC	-1000
+4.	5000	
+5. Test UserE	35000
+6. Test UserF	70000
+7. Test UserG	100000
+8. Test UserH	100001
+9. Test UserI	25000
+10. Test UserJ	72000
+11. TestUser1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890	$123456
 
 Output
 --------------
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
-9.
-10.
-
-
-
+1. Test UserA: $27902.2
+2. Test UserB: $0
+3. Negative income input on line 3
+4. 
+5. Test UserE: $93600
+6. Test UserF: $195100
+7. Test UserG: $21100
+8. Test UserH: $21100.3
+9. Test UserI: $4000
+10. Test UserJ: $13820
+11. Line length exceeds the limit of 80 characters on line 11
