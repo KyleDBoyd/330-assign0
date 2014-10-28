@@ -1,7 +1,5 @@
 Kyle Boyd
 
-564867695
-
 CSCI 331
 
 Assignment 0
